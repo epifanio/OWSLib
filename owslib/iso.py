@@ -539,6 +539,10 @@ class MD_DataIdentification(object):
                 val = util.testXMLValue(i)
                 if val is not None:
                     self.resourcelanguage.append(val)
+            for i in md.findall(util.nspath_eval('gmd:language/gmd:LanguageCode', namespaces)):
+                val = _testCodeListValue(i)
+                if val is not None:
+                    self.resourcelanguage.append(val)
 
             self.creator = []
             self.publisher = []
